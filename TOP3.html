@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J3IT TOP3 Proofs</title>
+  <style>
+    :root {
+      --bg: #eff3f8;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --muted: #5f6b7a;
+      --line: #dbe3ec;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 20% 0%, #ffffff 0%, var(--bg) 62%, #e9edf4 100%);
+      color: var(--ink);
+      font-family: "Segoe UI", "Trebuchet MS", "Verdana", sans-serif;
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 28px));
+      margin: 18px auto 34px;
+    }
+    header {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 22px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(25px, 3.2vw, 36px);
+      line-height: 1.08;
+    }
+    .intro {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+    h2 {
+      margin: 24px 4px 12px;
+      font-size: 21px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 720/320;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .meta {
+      padding: 13px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .meta strong {
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    .meta span {
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+    .swatches {
+      margin-top: 4px;
+      display: flex;
+      gap: 7px;
+    }
+    .swatch {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, .14);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>TOP3 Batch: Refined Option 5 Proofs</h1>
+      <p class="intro">Focus set generated from 5A4, 5D4, and 5E4 as TOP3-1, TOP3-2, and TOP3-3. Each TOP3 group has three refinements using the same Zinc Signal palette.</p>
+    </header>
+    <section id="proofs"></section>
+  </main>
+  <script>
+    const palette = {
+      bg: "#18181b",
+      panel: "#18181b",
+      surface: "#fafafa",
+      primary: "#eab308",
+      accent: "#d4d4d8",
+      aux: "#71717a",
+      muted: "#a1a1aa"
+    };
+
+    const groups = [
+      { id: "TOP3-1", source: "5A4", kind: "prompt" },
+      { id: "TOP3-2", source: "5D4", kind: "badge" },
+      { id: "TOP3-3", source: "5E4", kind: "shell" }
+    ];
+
+    function wordmark(mode, x, y, size, color) {
+      if (mode === "upperNoTop") {
+        return `<path d="M${x + 48} ${y - 84}v54c0 28-18 42-46 30" fill="none" stroke="${color}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><text x="${x + 76}" y="${y}" font-family="Consolas, 'Courier New', monospace" font-size="${size}" font-weight="700" fill="${color}">3IT</text>`;
+      }
+      return `<text x="${x}" y="${y}" font-family="Consolas, 'Courier New', monospace" font-size="${size}" font-weight="700" fill="${color}">J3IT</text>`;
+    }
+
+    function top31(v) {
+      if (v === 1) {
+        return `<rect width="720" height="320" fill="${palette.bg}"/><g transform="translate(66 76)"><rect x="0" y="0" width="588" height="168" rx="24" fill="${palette.surface}"/><rect x="18" y="18" width="552" height="132" rx="14" fill="${palette.panel}"/><path d="M56 70l32 26-32 26" fill="none" stroke="${palette.primary}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M356 96h124" stroke="${palette.accent}" stroke-width="10" stroke-linecap="round"/><rect x="322" y="60" width="12" height="72" fill="${palette.primary}"/>${wordmark("upper", 112, 123, 82, palette.surface)}</g>`;
+      }
+      if (v === 2) {
+        return `<rect width="720" height="320" fill="${palette.bg}"/><g transform="translate(66 72)"><rect x="0" y="0" width="588" height="176" rx="24" fill="${palette.surface}"/><rect x="16" y="14" width="556" height="148" rx="20" fill="${palette.panel}"/><path d="M42 58h98M42 92h64M42 126h82" stroke="${palette.aux}" stroke-width="8" stroke-linecap="round"/><path d="M168 72h284" stroke="${palette.primary}" stroke-width="3" stroke-dasharray="6 7"/><path d="M58 86l30 24-30 24" fill="none" stroke="${palette.primary}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>${wordmark("upper", 116, 123, 82, palette.surface)}</g>`;
+      }
+      return `<rect width="720" height="320" fill="${palette.bg}"/><g transform="translate(70 78)"><rect x="0" y="0" width="580" height="164" rx="22" fill="${palette.surface}"/><rect x="20" y="16" width="540" height="132" rx="14" fill="${palette.panel}"/><circle cx="50" cy="82" r="7" fill="${palette.primary}"/><circle cx="70" cy="82" r="7" fill="${palette.accent}"/><circle cx="90" cy="82" r="7" fill="${palette.primary}"/><path d="M114 82h26" stroke="${palette.primary}" stroke-width="10" stroke-linecap="round"/>${wordmark("upper", 152, 123, 82, palette.surface)}<path d="M382 76h94M382 106h76M382 136h100" stroke="${palette.aux}" stroke-width="7" stroke-linecap="round"/></g>`;
+    }
+
+    function top32(v) {
+      if (v === 1) {
+        return `<rect width="720" height="320" fill="${palette.panel}"/><g transform="translate(74 62)"><rect x="0" y="0" width="196" height="196" rx="32" fill="${palette.surface}"/><rect x="26" y="38" width="144" height="114" rx="14" fill="${palette.panel}"/><path d="M52 96l28-22v44l-28-22z" fill="${palette.accent}"/><rect x="92" y="88" width="46" height="12" fill="${palette.primary}"/><path d="M24 38h146" stroke="${palette.primary}" stroke-width="10"/></g><g transform="translate(302 98)">${wordmark("upperNoTop", 0, 98, 108, palette.surface)}<rect x="6" y="118" width="224" height="10" rx="5" fill="${palette.primary}"/></g>`;
+      }
+      if (v === 2) {
+        return `<rect width="720" height="320" fill="${palette.panel}"/><g transform="translate(70 62)"><rect x="0" y="0" width="204" height="196" rx="32" fill="${palette.surface}"/><path d="M48 54h108v88H48z" fill="${palette.panel}"/><path d="M66 100l24-18v36l-24-18z" fill="${palette.accent}"/><path d="M104 100h42" stroke="${palette.primary}" stroke-width="12" stroke-linecap="round"/><path d="M28 42h148" stroke="${palette.primary}" stroke-width="8"/></g><g transform="translate(294 92)">${wordmark("upperNoTop", 0, 104, 112, palette.surface)}<path d="M6 126h240" stroke="${palette.accent}" stroke-width="7" stroke-linecap="round"/></g>`;
+      }
+      return `<rect width="720" height="320" fill="${palette.panel}"/><g transform="translate(70 60)"><rect x="0" y="0" width="206" height="200" rx="32" fill="${palette.surface}"/><rect x="26" y="34" width="154" height="120" rx="16" fill="${palette.panel}"/><path d="M44 34h118" stroke="${palette.primary}" stroke-width="10"/><circle cx="62" cy="94" r="10" fill="${palette.accent}"/><circle cx="91" cy="94" r="10" fill="${palette.primary}"/><circle cx="120" cy="94" r="10" fill="${palette.accent}"/></g><g transform="translate(296 96)">${wordmark("upperNoTop", 0, 102, 108, palette.surface)}<rect x="6" y="120" width="236" height="9" rx="5" fill="${palette.primary}"/></g>`;
+    }
+
+    function top33(v) {
+      if (v === 1) {
+        return `<rect width="720" height="320" fill="${palette.surface}"/><g transform="translate(64 62)"><rect x="0" y="0" width="592" height="196" rx="24" fill="${palette.panel}"/><path d="M26 50h540" stroke="${palette.aux}" stroke-width="2"/><circle cx="34" cy="28" r="7" fill="${palette.primary}"/><circle cx="58" cy="28" r="7" fill="${palette.accent}"/><circle cx="82" cy="28" r="7" fill="${palette.surface}"/><text x="36" y="126" font-family="Consolas, 'Courier New', monospace" font-size="82" font-weight="700" fill="${palette.surface}">J3IT</text><path d="M280 102h74c28 0 28 42 58 42h80" fill="none" stroke="${palette.primary}" stroke-width="9" stroke-linecap="round"/><circle cx="280" cy="102" r="10" fill="${palette.accent}"/><circle cx="412" cy="144" r="10" fill="${palette.primary}"/><circle cx="492" cy="144" r="10" fill="${palette.accent}"/></g>`;
+      }
+      if (v === 2) {
+        return `<rect width="720" height="320" fill="${palette.surface}"/><g transform="translate(64 62)"><rect x="0" y="0" width="592" height="196" rx="24" fill="${palette.panel}"/><path d="M24 48h544" stroke="${palette.aux}" stroke-width="2"/><path d="M30 86h104M30 116h76M30 146h120" stroke="${palette.aux}" stroke-width="7" stroke-linecap="round"/><text x="170" y="126" font-family="Consolas, 'Courier New', monospace" font-size="82" font-weight="700" fill="${palette.surface}">J3IT</text><path d="M356 88h150" stroke="${palette.primary}" stroke-width="7" stroke-dasharray="5 8" stroke-linecap="round"/><path d="M356 128h130" stroke="${palette.accent}" stroke-width="7" stroke-dasharray="5 8" stroke-linecap="round"/></g>`;
+      }
+      return `<rect width="720" height="320" fill="${palette.surface}"/><g transform="translate(64 62)"><rect x="0" y="0" width="592" height="196" rx="24" fill="${palette.panel}"/><path d="M24 48h544" stroke="${palette.aux}" stroke-width="2"/><circle cx="34" cy="28" r="7" fill="${palette.primary}"/><circle cx="58" cy="28" r="7" fill="${palette.accent}"/><circle cx="82" cy="28" r="7" fill="${palette.surface}"/><text x="40" y="126" font-family="Consolas, 'Courier New', monospace" font-size="82" font-weight="700" fill="${palette.surface}">J3IT</text><path d="M286 102h72c30 0 30 44 60 44h76" fill="none" stroke="${palette.primary}" stroke-width="9" stroke-linecap="round"/><path d="M286 126h54c28 0 28 32 58 32h44" fill="none" stroke="${palette.accent}" stroke-width="7" stroke-linecap="round"/><circle cx="286" cy="102" r="10" fill="${palette.accent}"/><circle cx="418" cy="146" r="10" fill="${palette.primary}"/><circle cx="494" cy="146" r="10" fill="${palette.accent}"/></g>`;
+    }
+
+    function render(kind, variant) {
+      if (kind === "prompt") return top31(variant);
+      if (kind === "badge") return top32(variant);
+      return top33(variant);
+    }
+
+    function card(group, variant) {
+      return `<article class="card"><svg class="art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img">${render(group.kind, variant)}</svg><div class="meta"><strong>${group.id}-${variant} <span style="font-size:13px;color:#6b7280;">(from ${group.source})</span></strong><span>Refinement ${variant} using the same Zinc Signal palette.</span><div class="swatches"><span class="swatch" style="background:${palette.panel}"></span><span class="swatch" style="background:${palette.surface}"></span><span class="swatch" style="background:${palette.primary}"></span><span class="swatch" style="background:${palette.accent}"></span><span class="swatch" style="background:${palette.aux}"></span></div></div></article>`;
+    }
+
+    document.getElementById("proofs").innerHTML = groups.map((group) => `<h2>${group.id}</h2><section class="grid" aria-label="${group.id} refinements">${[1,2,3].map((variant) => card(group, variant)).join("")}</section>`).join("");
+  </script>
+</body>
+</html>
