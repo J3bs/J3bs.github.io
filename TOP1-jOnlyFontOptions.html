@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TOP1 J-Only Font Options</title>
+<style>
+:root{--bg:#ecf1f8;--card:#fff;--ink:#1f2937;--muted:#5f6b7a;--line:#dbe3ec}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:radial-gradient(circle at 18% 0%,#fff 0%,var(--bg) 58%,#e4ebf5 100%);font-family:"Segoe UI","Trebuchet MS","Verdana",sans-serif}
+.wrap{width:min(1260px,calc(100% - 28px));margin:18px auto 34px}.hdr{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px}
+h1{margin:0 0 8px;font-size:clamp(25px,3.2vw,36px);line-height:1.08}.intro{margin:0;color:var(--muted);line-height:1.5;font-size:15px}
+.grid{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.art{display:block;width:100%;aspect-ratio:720/320;border-bottom:1px solid var(--line);background:#fff}.meta{padding:12px 14px 14px;display:flex;flex-direction:column;gap:5px}
+.meta strong{font-size:16px}.meta span{font-size:13px;color:var(--muted);line-height:1.35}code{font-family:Consolas,"Courier New",monospace;font-size:12px;color:#334155;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;padding:1px 5px}
+</style></head><body><main class="wrap"><section class="hdr"><h1>TOP1: J-Only Font Options</h1><p class="intro">Only the <code>J</code> font changes across options. <code>3IT</code> remains fixed to keep contrast attribution clear.</p></section><section class="grid" id="proofs"></section></main>
+<script>
+const jFonts=[
+"Consolas,'Courier New',monospace","Trebuchet MS,Verdana,sans-serif","Segoe UI,Tahoma,sans-serif","Gill Sans,Gill Sans MT,Calibri,sans-serif",
+"Franklin Gothic Medium,Arial Narrow,sans-serif","Lucida Sans Unicode,Lucida Grande,sans-serif","Century Gothic,Futura,sans-serif","Tahoma,Geneva,sans-serif",
+"Verdana,Geneva,sans-serif","Palatino Linotype,Book Antiqua,serif","Cambria,'Times New Roman',serif","Georgia,'Times New Roman',serif"
+];
+const itFont="Consolas,'Courier New',monospace";
+function e(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));}
+function art(j){return `<svg class="art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320"><rect width="720" height="320" fill="#18181b"/><g transform="translate(66 76)"><rect x="0" y="0" width="588" height="168" rx="24" fill="#fafafa"/><rect x="18" y="18" width="552" height="132" rx="14" fill="#18181b"/><path d="M56 70l32 26-32 26" fill="none" stroke="#eab308" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M356 96h124" stroke="#d4d4d8" stroke-width="10" stroke-linecap="round"/><rect x="322" y="60" width="12" height="72" fill="#eab308"/><text x="112" y="123" font-family="${e(j)}" font-size="76" font-weight="800" fill="#fafafa">J</text><text x="172" y="123" font-family="${e(itFont)}" font-size="72" font-weight="800" fill="#fafafa">3IT</text></g></svg>`;}
+function card(i,j){const id=`TOP1-J${String(i+1).padStart(2,"0")}`;return `<article class="card">${art(j)}<div class="meta"><strong>${id}</strong><span>J font: <code>${e(j)}</code></span><span>3IT font: <code>${e(itFont)}</code></span></div></article>`;}
+document.getElementById("proofs").innerHTML=jFonts.map((j,i)=>card(i,j)).join("");
+</script></body></html>
