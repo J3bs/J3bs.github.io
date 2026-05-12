@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">J3IT 05E Ops Shell</title>
+  <desc id="desc">Command Wordmark variant with shell prompt, routing line, and uptime indicator.</desc>
+  <rect width="720" height="320" fill="#fbf7f2"/>
+  <g transform="translate(68 64)">
+    <rect x="0" y="0" width="584" height="192" rx="24" fill="#2f2a24"/>
+    <path d="M28 52h528" stroke="#7c6f64" stroke-width="2"/>
+    <circle cx="34" cy="28" r="7" fill="#c08457"/>
+    <circle cx="58" cy="28" r="7" fill="#8fb9aa"/>
+    <circle cx="82" cy="28" r="7" fill="#fbf7f2"/>
+    <text x="40" y="126" font-family="Consolas, 'Courier New', monospace" font-size="82" font-weight="700" fill="#fbf7f2">J3IT</text>
+    <path d="M284 102h70c28 0 28 42 56 42h76" fill="none" stroke="#c08457" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="284" cy="102" r="10" fill="#8fb9aa"/>
+    <circle cx="410" cy="144" r="10" fill="#c08457"/>
+    <circle cx="486" cy="144" r="10" fill="#8fb9aa"/>
+  </g>
+</svg>

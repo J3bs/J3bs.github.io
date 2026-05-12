@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J3IT Option 3 Proofs</title>
+  <style>
+    :root {
+      --ink: #222833;
+      --muted: #667386;
+      --line: #dbe3ec;
+      --surface: #f5f7fb;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "DejaVu Sans", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--surface);
+    }
+    header {
+      padding: 34px 40px 22px;
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    header p {
+      max-width: 840px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    main { padding: 28px 40px 52px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 22px;
+    }
+    .proof {
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .proof img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 720 / 320;
+      object-fit: contain;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .meta { padding: 16px 18px 18px; }
+    .meta h2 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+    .meta p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    @media (max-width: 560px) {
+      header, main { padding-left: 18px; padding-right: 18px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>J3IT Option 3 Proofs</h1>
+    <p>Option 3 proofs are parked here for reference. No further option 3 changes are requested.</p>
+  </header>
+  <main>
+    <section class="grid" aria-label="Option 3 logo proofs">
+      <article class="proof"><img src="assets/logo-proofs/focused/j3it-03a-sentinel-core.svg" alt="J3IT 03A Sentinel Core"><div class="meta"><h2>03A Sentinel Core</h2><p>Reference option only.</p></div></article>
+      <article class="proof"><img src="assets/logo-proofs/focused/j3it-03b-zero-trust-gate.svg" alt="J3IT 03B Zero Trust Gate"><div class="meta"><h2>03B Zero Trust Gate</h2><p>Reference option only.</p></div></article>
+      <article class="proof"><img src="assets/logo-proofs/focused/j3it-03c-managed-shield.svg" alt="J3IT 03C Managed Shield"><div class="meta"><h2>03C Managed Shield</h2><p>Reference option only.</p></div></article>
+      <article class="proof"><img src="assets/logo-proofs/focused/j3it-03d-continuity-lock.svg" alt="J3IT 03D Continuity Lock"><div class="meta"><h2>03D Continuity Lock</h2><p>Reference option only.</p></div></article>
+      <article class="proof"><img src="assets/logo-proofs/focused/j3it-03e-ops-badge.svg" alt="J3IT 03E Ops Badge"><div class="meta"><h2>03E Ops Badge</h2><p>Reference option only.</p></div></article>
+    </section>
+  </main>
+</body>
+</html>

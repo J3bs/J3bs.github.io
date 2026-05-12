@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">J3IT Logo Proof 02 - Infrastructure Stack</title>
+  <desc id="desc">A structured J3IT wordmark paired with layered infrastructure bars.</desc>
+  <rect width="720" height="320" fill="#ffffff"/>
+  <g transform="translate(76 76)">
+    <rect x="0" y="0" width="168" height="42" rx="8" fill="#10243E"/>
+    <rect x="28" y="62" width="168" height="42" rx="8" fill="#19B8D8"/>
+    <rect x="0" y="124" width="168" height="42" rx="8" fill="#35B779"/>
+    <circle cx="26" cy="21" r="5" fill="#ffffff"/>
+    <circle cx="54" cy="21" r="5" fill="#ffffff"/>
+    <circle cx="82" cy="21" r="5" fill="#ffffff"/>
+    <circle cx="54" cy="83" r="5" fill="#10243E"/>
+    <circle cx="82" cy="83" r="5" fill="#10243E"/>
+    <circle cx="110" cy="83" r="5" fill="#10243E"/>
+    <circle cx="26" cy="145" r="5" fill="#ffffff"/>
+    <circle cx="54" cy="145" r="5" fill="#ffffff"/>
+    <circle cx="82" cy="145" r="5" fill="#ffffff"/>
+  </g>
+  <g transform="translate(305 92)">
+    <text x="0" y="84" font-family="Arial, Helvetica, sans-serif" font-size="98" font-weight="900" fill="#10243E">J3IT</text>
+    <rect x="4" y="104" width="270" height="8" rx="4" fill="#19B8D8"/>
+    <text x="4" y="148" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#506174">IT INFRASTRUCTURE THAT HOLDS</text>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">J3IT Logo Proof 01 - Circuit Monogram</title>
+  <desc id="desc">A compact J3IT wordmark with a circuit-inspired J3 monogram.</desc>
+  <rect width="720" height="320" fill="#ffffff"/>
+  <g transform="translate(72 62)">
+    <rect x="0" y="0" width="196" height="196" rx="28" fill="#10243E"/>
+    <path d="M58 46h60c28 0 48 20 48 48s-20 48-48 48H82" fill="none" stroke="#19B8D8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M58 46v96c0 28-16 48-46 48" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+    <path d="M108 94h62" fill="none" stroke="#35B779" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="58" cy="46" r="9" fill="#35B779"/>
+    <circle cx="170" cy="94" r="9" fill="#ffffff"/>
+    <circle cx="82" cy="142" r="9" fill="#19B8D8"/>
+  </g>
+  <g transform="translate(310 105)">
+    <text x="0" y="70" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="800" fill="#10243E" letter-spacing="0">J3IT</text>
+    <text x="4" y="112" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#506174" letter-spacing="3">SYSTEMS • SUPPORT • SECURITY</text>
+  </g>
+</svg>

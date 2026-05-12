@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">J3IT 03E Ops Badge</title>
+  <desc id="desc">Secure Operations variant with a badge-like shield and monitoring pulse.</desc>
+  <rect width="720" height="320" fill="#ffffff"/>
+  <g transform="translate(75 44)">
+    <path d="M118 0l98 42v70c0 65-38 106-98 134-60-28-98-69-98-134V42L118 0z" fill="#111827"/>
+    <path d="M56 126h36l16-34 22 68 18-34h34" fill="none" stroke="#22d3ee" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="118" cy="62" r="20" fill="#ef4444"/>
+    <path d="M118 42v40M98 62h40" stroke="#f9fafb" stroke-width="8" stroke-linecap="round"/>
+    <path d="M50 55l68-28 68 28v58c0 49-25 83-68 106-43-23-68-57-68-106V55z" fill="none" stroke="#ef4444" stroke-width="8" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(318 94)">
+    <text x="0" y="92" font-family="DejaVu Sans, Segoe UI, sans-serif" font-size="108" font-weight="800" fill="#111827">J3IT</text>
+    <rect x="7" y="112" width="218" height="10" rx="5" fill="#ef4444"/>
+  </g>
+</svg>

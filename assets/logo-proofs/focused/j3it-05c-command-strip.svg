@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">J3IT 05C Command Strip</title>
+  <desc id="desc">Command Wordmark variant with a horizontal command strip and scan marks.</desc>
+  <rect width="720" height="320" fill="#f8fafc"/>
+  <g transform="translate(66 104)">
+    <rect x="0" y="0" width="588" height="112" rx="18" fill="#f8fafc" stroke="#064e3b" stroke-width="10"/>
+    <path d="M38 56l28-22v44l-28-22z" fill="#10b981"/>
+    <path d="M120 28v44c0 24-15 34-36 24" fill="none" stroke="#064e3b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="150" y="78" font-family="Consolas, 'Courier New', monospace" font-size="74" font-weight="700" fill="#064e3b">3IT</text>
+    <path d="M300 24v64M328 24v64M356 24v64" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+    <rect x="416" y="39" width="96" height="34" rx="17" fill="#a7f3d0"/>
+    <rect x="530" y="38" width="12" height="36" fill="#064e3b"/>
+  </g>
+</svg>

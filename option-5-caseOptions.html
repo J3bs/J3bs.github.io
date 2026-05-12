@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J3IT Option 5 Case Options</title>
+  <style>
+    :root {
+      --ink: #20242c;
+      --muted: #667386;
+      --line: #dbe3ec;
+      --surface: #f5f7fb;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "DejaVu Sans", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--surface);
+    }
+    header {
+      padding: 34px 40px 22px;
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    header p {
+      max-width: 960px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    main { padding: 28px 40px 52px; }
+    h2 {
+      margin: 10px 0 16px;
+      font-size: 22px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+    .proof {
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 720 / 320;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .meta { padding: 16px 18px 18px; }
+    .meta h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+    .meta p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .swatches {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .swatch {
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(0, 0, 0, .14);
+      border-radius: 50%;
+    }
+    @media (max-width: 560px) {
+      header, main { padding-left: 18px; padding-right: 18px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>J3IT Option 5 Case Options</h1>
+    <p>Case treatments applied to the color option system. Each option includes uppercase, lowercase dotted j, lowercase dotless j, uppercase J without top bar, and a second uppercase color control.</p>
+  </header>
+  <main id="proofs"></main>
+  <script>
+    const palettes = [
+      { id: 1, name: "Uppercase control", mode: "upper", bg: "#0b1220", panel: "#0b1220", surface: "#e5eefb", primary: "#38bdf8", accent: "#2563eb", aux: "#16a34a", muted: "#64748b" },
+      { id: 2, name: "Lowercase dotted j", mode: "lowerDotted", bg: "#fff7ed", panel: "#431407", surface: "#fff7ed", primary: "#fb923c", accent: "#9a3412", aux: "#fed7aa", muted: "#fdba74" },
+      { id: 3, name: "Lowercase dotless j", mode: "lowerDotless", bg: "#f8fafc", panel: "#064e3b", surface: "#f8fafc", primary: "#10b981", accent: "#a7f3d0", aux: "#065f46", muted: "#94a3b8" },
+      { id: 4, name: "Uppercase J no top bar", mode: "upperNoTop", bg: "#18181b", panel: "#18181b", surface: "#fafafa", primary: "#eab308", accent: "#d4d4d8", aux: "#71717a", muted: "#a1a1aa" },
+      { id: 5, name: "Uppercase warm control", mode: "upper", bg: "#fbf7f2", panel: "#2f2a24", surface: "#fbf7f2", primary: "#c08457", accent: "#8fb9aa", aux: "#7c6f64", muted: "#a89482" }
+    ];
+
+    const options = [
+      { id: "5A", title: "Root Prompt", shape: "rootPrompt" },
+      { id: "5B", title: "Service Console", shape: "serviceConsole" },
+      { id: "5C", title: "Command Strip", shape: "commandStrip" },
+      { id: "5D", title: "Terminal Badge", shape: "terminalBadge" },
+      { id: "5E", title: "Ops Shell", shape: "opsShell" }
+    ];
+
+    function esc(value) {
+      return String(value).replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[ch]));
+    }
+
+    function wordmark(x, y, size, color, mode = "upper") {
+      if (mode === "lowerDotless") {
+        return `<path d="M${x + 38} ${y - 84}v52c0 27-16 42-44 32" fill="none" stroke="${color}" stroke-width="${Math.max(10, size * .13)}" stroke-linecap="round" stroke-linejoin="round"/><text x="${x + 64}" y="${y}" font-family="Consolas, 'Courier New', monospace" font-size="${size}" font-weight="700" fill="${color}">3IT</text>`;
+      }
+      if (mode === "upperNoTop") {
+        return `<path d="M${x + 48} ${y - 86}v56c0 28-18 42-46 30" fill="none" stroke="${color}" stroke-width="${Math.max(12, size * .13)}" stroke-linecap="round" stroke-linejoin="round"/><text x="${x + 76}" y="${y}" font-family="Consolas, 'Courier New', monospace" font-size="${size}" font-weight="700" fill="${color}">3IT</text>`;
+      }
+      const label = mode === "lowerDotted" ? "j3IT" : "J3IT";
+      return `<text x="${x}" y="${y}" font-family="Consolas, 'Courier New', monospace" font-size="${size}" font-weight="700" fill="${color}">${label}</text>`;
+    }
+
+    function svg(shape, p) {
+      const wm = (x, y, size, color) => wordmark(x, y, size, color, p.mode);
+      const body = {
+        rootPrompt: `<rect width="720" height="320" fill="${p.bg}"/><g transform="translate(70 76)"><rect x="0" y="0" width="580" height="168" rx="22" fill="${p.surface}"/><rect x="18" y="18" width="544" height="132" rx="14" fill="${p.panel}"/><path d="M56 70l32 26-32 26" fill="none" stroke="${p.primary}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>${wm(116, 123, 82, p.surface)}<rect x="324" y="60" width="12" height="72" fill="${p.aux}"/><path d="M364 96h112" stroke="${p.accent}" stroke-width="10" stroke-linecap="round"/></g>`,
+        serviceConsole: `<rect width="720" height="320" fill="${p.bg}"/><g transform="translate(70 72)"><rect x="0" y="0" width="580" height="176" rx="20" fill="${p.panel}"/><circle cx="34" cy="34" r="7" fill="${p.primary}"/><circle cx="58" cy="34" r="7" fill="${p.surface}"/><circle cx="82" cy="34" r="7" fill="${p.muted}"/><path d="M42 92h70M42 122h44M42 152h92" stroke="${p.accent}" stroke-width="8" stroke-linecap="round"/>${wm(164, 126, 86, p.surface)}<path d="M402 86v56" stroke="${p.primary}" stroke-width="12" stroke-linecap="round"/></g>`,
+        commandStrip: `<rect width="720" height="320" fill="${p.bg}"/><g transform="translate(66 104)"><rect x="0" y="0" width="588" height="112" rx="18" fill="${p.surface}" stroke="${p.panel}" stroke-width="10"/><path d="M38 56l28-22v44l-28-22z" fill="${p.primary}"/>${wm(98, 78, 74, p.panel)}<path d="M300 24v64M328 24v64M356 24v64" stroke="${p.primary}" stroke-width="8" stroke-linecap="round"/><rect x="416" y="39" width="96" height="34" rx="17" fill="${p.accent}"/><rect x="530" y="38" width="12" height="36" fill="${p.panel}"/></g>`,
+        terminalBadge: `<rect width="720" height="320" fill="${p.panel}"/><g transform="translate(76 66)"><rect x="0" y="0" width="188" height="188" rx="32" fill="${p.surface}"/><rect x="24" y="38" width="140" height="112" rx="14" fill="${p.panel}"/><path d="M52 94l28-22v44l-28-22z" fill="${p.accent}"/><rect x="92" y="86" width="46" height="12" fill="${p.primary}"/><path d="M24 38h140" stroke="${p.primary}" stroke-width="10"/></g><g transform="translate(306 96)">${wm(0, 98, 108, p.surface)}<rect x="6" y="118" width="218" height="10" rx="5" fill="${p.primary}"/></g>`,
+        opsShell: `<rect width="720" height="320" fill="${p.bg}"/><g transform="translate(68 64)"><rect x="0" y="0" width="584" height="192" rx="24" fill="${p.panel}"/><path d="M28 52h528" stroke="${p.aux}" stroke-width="2"/><circle cx="34" cy="28" r="7" fill="${p.primary}"/><circle cx="58" cy="28" r="7" fill="${p.accent}"/><circle cx="82" cy="28" r="7" fill="${p.surface}"/>${wm(40, 126, 82, p.surface)}<path d="M284 102h70c28 0 28 42 56 42h76" fill="none" stroke="${p.primary}" stroke-width="9" stroke-linecap="round"/><circle cx="284" cy="102" r="10" fill="${p.accent}"/><circle cx="410" cy="144" r="10" fill="${p.primary}"/><circle cx="486" cy="144" r="10" fill="${p.accent}"/></g>`
+      }[shape];
+      return `<svg class="art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img">${body}</svg>`;
+    }
+
+    function card(option, palette) {
+      const id = `${option.id}${palette.id}`.toUpperCase();
+      return `<article class="proof">${svg(option.shape, palette)}<div class="meta"><h3>${id} ${esc(option.title)}</h3><p>${esc(palette.name)}</p><div class="swatches">${["panel","surface","primary","accent","aux"].map((k) => `<span class="swatch" style="background:${palette[k]}"></span>`).join("")}</div></div></article>`;
+    }
+
+    document.getElementById("proofs").innerHTML = options.map((option) => `<h2>Option ${option.id}</h2><section class="grid" aria-label="Option ${option.id} case variants">${palettes.map((palette) => card(option, palette)).join("")}</section>`).join("");
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">J3IT Logo Proof 05 - Command Wordmark</title>
+  <desc id="desc">A terminal-inspired J3IT command-style wordmark.</desc>
+  <rect width="720" height="320" fill="#10243E"/>
+  <g transform="translate(74 82)">
+    <rect x="0" y="0" width="572" height="156" rx="18" fill="#ffffff"/>
+    <circle cx="34" cy="34" r="7" fill="#35B779"/>
+    <circle cx="58" cy="34" r="7" fill="#19B8D8"/>
+    <circle cx="82" cy="34" r="7" fill="#10243E"/>
+    <path d="M48 92l36 28-36 28" fill="none" stroke="#19B8D8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="112" y="128" font-family="Consolas, 'Courier New', monospace" font-size="82" font-weight="800" fill="#10243E">J3IT</text>
+    <rect x="333" y="58" width="12" height="82" fill="#35B779"/>
+    <text x="368" y="122" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#506174">READY</text>
+  </g>
+</svg>

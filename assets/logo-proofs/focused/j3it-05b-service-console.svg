@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">J3IT 05B Service Console</title>
+  <desc id="desc">Command Wordmark variant with status console styling.</desc>
+  <rect width="720" height="320" fill="#fff7ed"/>
+  <g transform="translate(70 72)">
+    <rect x="0" y="0" width="580" height="176" rx="20" fill="#431407"/>
+    <circle cx="34" cy="34" r="7" fill="#fb923c"/>
+    <circle cx="58" cy="34" r="7" fill="#fed7aa"/>
+    <circle cx="82" cy="34" r="7" fill="#fdba74"/>
+    <path d="M42 92h70M42 122h44M42 152h92" stroke="#9a3412" stroke-width="8" stroke-linecap="round"/>
+    <text x="164" y="126" font-family="Consolas, 'Courier New', monospace" font-size="86" font-weight="700" fill="#fff7ed">j3IT</text>
+    <path d="M402 86v56" stroke="#fb923c" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>
