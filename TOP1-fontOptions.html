@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TOP1 Font Options</title>
+  <title>TOP1 Mixed Font Options</title>
   <style>
     :root {
       --bg: #ecf1f8;
@@ -15,7 +15,6 @@
       --surface: #fafafa;
       --primary: #eab308;
       --accent: #d4d4d8;
-      --aux: #71717a;
     }
     * { box-sizing: border-box; }
     body {
@@ -25,7 +24,7 @@
       font-family: "Segoe UI", "Trebuchet MS", "Verdana", sans-serif;
     }
     .wrap {
-      width: min(1220px, calc(100% - 28px));
+      width: min(1260px, calc(100% - 28px));
       margin: 18px auto 34px;
     }
     header {
@@ -45,22 +44,8 @@
       line-height: 1.5;
       font-size: 15px;
     }
-    .swatches {
-      margin-top: 12px;
-      display: flex;
-      gap: 8px;
-    }
-    .swatch {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 1px solid rgba(0, 0, 0, .14);
-    }
-    h2 {
-      margin: 22px 2px 10px;
-      font-size: 19px;
-    }
     .grid {
+      margin-top: 18px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
       gap: 14px;
@@ -88,66 +73,58 @@
     }
     .meta strong {
       font-size: 16px;
-      letter-spacing: 0;
     }
     .meta span {
       font-size: 13px;
       color: var(--muted);
       line-height: 1.35;
     }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+      color: #334155;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 1px 5px;
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <header>
-      <h1>TOP1: Expanded Font Options</h1>
-      <p class="intro">TOP1 remains locked to TOP3-1-1 mark geometry and Zinc Signal palette. This pass expands typography range so one candidate can clearly win on readability, authority, and technical fit.</p>
-      <div class="swatches" aria-label="Palette">
-        <span class="swatch" style="background:#18181b"></span>
-        <span class="swatch" style="background:#fafafa"></span>
-        <span class="swatch" style="background:#eab308"></span>
-        <span class="swatch" style="background:#d4d4d8"></span>
-        <span class="swatch" style="background:#71717a"></span>
-      </div>
+      <h1>TOP1: Mixed Letter Font Options</h1>
+      <p class="intro">Each option keeps the TOP1 geometry and Zinc Signal palette fixed while using different font combinations for <code>J</code>, <code>3</code>, and <code>IT</code>. Total variants: 20.</p>
     </header>
-
-    <h2>Technical Sans</h2>
-    <section class="grid" id="tech"></section>
-
-    <h2>Geometric / Humanist</h2>
-    <section class="grid" id="geo"></section>
-
-    <h2>Controlled Serif Hybrids</h2>
-    <section class="grid" id="serif"></section>
+    <section class="grid" id="proofs" aria-label="TOP1 mixed font variants"></section>
   </main>
 
   <script>
-    const fontGroups = {
-      tech: [
-        { id: "TOP1-F1", name: "Consolas", family: "Consolas, 'Courier New', monospace", weight: 700, spacing: 0 },
-        { id: "TOP1-F2", name: "Lucida Console", family: "'Lucida Console', Monaco, monospace", weight: 700, spacing: 0.4 },
-        { id: "TOP1-F3", name: "Courier Prime", family: "'Courier New', monospace", weight: 700, spacing: 0.2 },
-        { id: "TOP1-F4", name: "Franklin Gothic", family: "'Franklin Gothic Medium', 'Arial Narrow', sans-serif", weight: 800, spacing: 0.6 },
-        { id: "TOP1-F5", name: "Tahoma Heavy", family: "Tahoma, 'Geneva', sans-serif", weight: 800, spacing: 0.3 }
-      ],
-      geo: [
-        { id: "TOP1-F6", name: "Trebuchet Bold", family: "'Trebuchet MS', 'Verdana', sans-serif", weight: 800, spacing: 0.7 },
-        { id: "TOP1-F7", name: "Century Gothic", family: "'Century Gothic', 'Futura', sans-serif", weight: 700, spacing: 1.4 },
-        { id: "TOP1-F8", name: "Gill Sans", family: "'Gill Sans', 'Gill Sans MT', Calibri, sans-serif", weight: 700, spacing: 1.0 },
-        { id: "TOP1-F9", name: "Segoe UI Black", family: "'Segoe UI', 'Tahoma', sans-serif", weight: 900, spacing: 0.5 },
-        { id: "TOP1-F10", name: "Verdana Bold", family: "Verdana, 'Geneva', sans-serif", weight: 800, spacing: 0.2 }
-      ],
-      serif: [
-        { id: "TOP1-F11", name: "Palatino", family: "'Palatino Linotype', 'Book Antiqua', serif", weight: 700, spacing: 0.8 },
-        { id: "TOP1-F12", name: "Georgia Bold", family: "Georgia, 'Times New Roman', serif", weight: 700, spacing: 0.4 },
-        { id: "TOP1-F13", name: "Cambria Bold", family: "Cambria, 'Times New Roman', serif", weight: 700, spacing: 0.5 },
-        { id: "TOP1-F14", name: "Bookman", family: "'Bookman Old Style', 'Palatino Linotype', serif", weight: 700, spacing: 0.9 },
-        { id: "TOP1-F15", name: "Garamond Heavy", family: "Garamond, 'Times New Roman', serif", weight: 700, spacing: 1.0 }
-      ]
-    };
+    const sets = [
+      ["Consolas, 'Courier New', monospace", "Trebuchet MS, Verdana, sans-serif", "Franklin Gothic Medium, Arial Narrow, sans-serif"],
+      ["Gill Sans, Gill Sans MT, Calibri, sans-serif", "Consolas, 'Courier New', monospace", "Segoe UI, Tahoma, sans-serif"],
+      ["Palatino Linotype, Book Antiqua, serif", "Verdana, Geneva, sans-serif", "Tahoma, Geneva, sans-serif"],
+      ["Century Gothic, Futura, sans-serif", "Lucida Console, Monaco, monospace", "Gill Sans, Gill Sans MT, Calibri, sans-serif"],
+      ["Cambria, 'Times New Roman', serif", "Trebuchet MS, Verdana, sans-serif", "Consolas, 'Courier New', monospace"],
+      ["Segoe UI, Tahoma, sans-serif", "Palatino Linotype, Book Antiqua, serif", "Century Gothic, Futura, sans-serif"],
+      ["Franklin Gothic Medium, Arial Narrow, sans-serif", "Gill Sans, Gill Sans MT, Calibri, sans-serif", "Lucida Sans Unicode, Lucida Grande, sans-serif"],
+      ["Verdana, Geneva, sans-serif", "Cambria, 'Times New Roman', serif", "Consolas, 'Courier New', monospace"],
+      ["Bookman Old Style, Palatino Linotype, serif", "Tahoma, Geneva, sans-serif", "Trebuchet MS, Verdana, sans-serif"],
+      ["Lucida Sans Unicode, Lucida Grande, sans-serif", "Century Gothic, Futura, sans-serif", "Palatino Linotype, Book Antiqua, serif"],
+      ["Consolas, 'Courier New', monospace", "Gill Sans, Gill Sans MT, Calibri, sans-serif", "Verdana, Geneva, sans-serif"],
+      ["Segoe UI, Tahoma, sans-serif", "Lucida Console, Monaco, monospace", "Franklin Gothic Medium, Arial Narrow, sans-serif"],
+      ["Trebuchet MS, Verdana, sans-serif", "Cambria, 'Times New Roman', serif", "Gill Sans, Gill Sans MT, Calibri, sans-serif"],
+      ["Century Gothic, Futura, sans-serif", "Palatino Linotype, Book Antiqua, serif", "Segoe UI, Tahoma, sans-serif"],
+      ["Tahoma, Geneva, sans-serif", "Consolas, 'Courier New', monospace", "Bookman Old Style, Palatino Linotype, serif"],
+      ["Gill Sans, Gill Sans MT, Calibri, sans-serif", "Verdana, Geneva, sans-serif", "Lucida Sans Unicode, Lucida Grande, sans-serif"],
+      ["Cambria, 'Times New Roman', serif", "Century Gothic, Futura, sans-serif", "Trebuchet MS, Verdana, sans-serif"],
+      ["Franklin Gothic Medium, Arial Narrow, sans-serif", "Segoe UI, Tahoma, sans-serif", "Palatino Linotype, Book Antiqua, serif"],
+      ["Lucida Console, Monaco, monospace", "Gill Sans, Gill Sans MT, Calibri, sans-serif", "Tahoma, Geneva, sans-serif"],
+      ["Verdana, Geneva, sans-serif", "Consolas, 'Courier New', monospace", "Century Gothic, Futura, sans-serif"]
+    ];
 
-    function esc(text) {
-      return String(text).replace(/[&<>"']/g, (ch) => ({
+    function esc(value) {
+      return String(value).replace(/[&<>"']/g, (ch) => ({
         "&": "&amp;",
         "<": "&lt;",
         ">": "&gt;",
@@ -156,7 +133,7 @@
       }[ch]));
     }
 
-    function art(font) {
+    function buildArt(fontJ, font3, fontIT) {
       return `<svg class="art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img">
         <rect width="720" height="320" fill="#18181b"/>
         <g transform="translate(66 76)">
@@ -165,25 +142,30 @@
           <path d="M56 70l32 26-32 26" fill="none" stroke="#eab308" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M356 96h124" stroke="#d4d4d8" stroke-width="10" stroke-linecap="round"/>
           <rect x="322" y="60" width="12" height="72" fill="#eab308"/>
-          <text x="112" y="123" font-family="${esc(font.family)}" font-size="82" font-weight="${font.weight}" letter-spacing="${font.spacing}" fill="#fafafa">J3IT</text>
+          <text x="112" y="123" font-size="82" fill="#fafafa" letter-spacing="0">
+            <tspan font-family="${esc(fontJ)}" font-weight="800">J</tspan>
+            <tspan font-family="${esc(font3)}" font-weight="800">3</tspan>
+            <tspan font-family="${esc(fontIT)}" font-weight="800">IT</tspan>
+          </text>
         </g>
       </svg>`;
     }
 
-    function card(font) {
+    function card(i, trio) {
+      const id = `TOP1-M${String(i + 1).padStart(2, "0")}`;
+      const [j, three, it] = trio;
       return `<article class="card">
-        ${art(font)}
+        ${buildArt(j, three, it)}
         <div class="meta">
-          <strong>${font.id} - ${font.name}</strong>
-          <span>Weight: ${font.weight} | Letter spacing: ${font.spacing}px</span>
-          <span>Stack: ${esc(font.family)}</span>
+          <strong>${id}</strong>
+          <span>J: <code>${esc(j)}</code></span>
+          <span>3: <code>${esc(three)}</code></span>
+          <span>IT: <code>${esc(it)}</code></span>
         </div>
       </article>`;
     }
 
-    document.getElementById("tech").innerHTML = fontGroups.tech.map(card).join("");
-    document.getElementById("geo").innerHTML = fontGroups.geo.map(card).join("");
-    document.getElementById("serif").innerHTML = fontGroups.serif.map(card).join("");
+    document.getElementById("proofs").innerHTML = sets.map((trio, i) => card(i, trio)).join("");
   </script>
 </body>
 </html>
