@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOP1 Final Options</title>
+  <style>
+    :root {
+      --bg: #eef3f8;
+      --panel: #ffffff;
+      --ink: #18202d;
+      --muted: #647184;
+      --line: #d9e2ec;
+      --zinc: #18181b;
+      --white: #fafafa;
+      --gray: #d4d4d8;
+      --yellow: #eab308;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 48%, #e5edf6 100%);
+      font-family: "Segoe UI", "Trebuchet MS", Verdana, sans-serif;
+    }
+
+    .wrap {
+      width: min(1460px, calc(100% - 28px));
+      margin: 18px auto 36px;
+    }
+
+    .hdr {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      margin: 0;
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .row {
+      margin-top: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .row-head {
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: end;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: #f8fafc;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .row-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .count {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .card {
+      min-width: 0;
+      background: var(--panel);
+    }
+
+    .art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 720 / 320;
+      background: #ffffff;
+    }
+
+    .meta {
+      min-height: 96px;
+      padding: 12px 14px 14px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .meta strong {
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .meta span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 5px;
+      padding-top: 3px;
+    }
+
+    .swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(15, 23, 42, .18);
+    }
+
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 20px, 1460px); }
+      .hdr { padding: 18px; }
+      .row-head { display: block; }
+      .count { display: block; margin-top: 8px; }
+      .proof-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hdr">
+      <h1>TOP1 Final Options</h1>
+      <p class="intro">RM02-based output proofs. The first proof in each row is RM02 applied as-is to that purpose; following cards isolate color, web, and print adaptations for final selection.</p>
+    </section>
+
+    <section id="proofs"></section>
+  </main>
+
+  <script>
+    const palette = {
+      zinc: "#18181b",
+      white: "#fafafa",
+      gray: "#d4d4d8",
+      yellow: "#eab308"
+    };
+
+    const rm02 = {
+      jitFont: "Consolas,'Courier New',monospace",
+      threeFont: "Trebuchet MS,Verdana,sans-serif",
+      threeColor: palette.white,
+      field: palette.zinc,
+      badge: palette.white,
+      panel: palette.zinc,
+      line: palette.gray,
+      accent: palette.yellow,
+      transparentField: false,
+      showBadge: true,
+      outlineBadge: false,
+      monochrome: false
+    };
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
+      }[c]));
+    }
+
+    function innerFilter(id, tone = palette.gray, opacity = ".86") {
+      return `<filter id="${id}" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="2.02" result="blur"/><feComposite in="blur" in2="SourceAlpha" operator="in" result="inner"/><feFlood flood-color="${tone}" flood-opacity="${opacity}" result="lineTone"/><feComposite in="lineTone" in2="inner" operator="in" result="shade"/><feComposite in="shade" in2="SourceGraphic" operator="over"/></filter>`;
+    }
+
+    function wordmark(opts, filterId) {
+      return `<text x="132" y="124" font-size="64" font-weight="800" fill="${opts.textColor || palette.white}" letter-spacing="0" textLength="170" lengthAdjust="spacingAndGlyphs"><tspan font-family="${esc(opts.jitFont || rm02.jitFont)}">J</tspan><tspan dx="-1.1" font-family="${esc(opts.threeFont || rm02.threeFont)}" font-size="42" dy="-16" fill="${opts.threeColor || rm02.threeColor}" filter="url(#${filterId})">3</tspan><tspan dx="-1.0" dy="16" font-family="${esc(opts.jitFont || rm02.jitFont)}">IT</tspan></text>`;
+    }
+
+    function rm02Svg(opts = {}) {
+      const o = { ...rm02, ...opts };
+      const filterId = `inner-${o.id}`;
+      const field = o.transparentField ? "" : `<rect width="720" height="320" fill="${o.field}"/>`;
+      const outerBadge = o.showBadge
+        ? `<rect x="0" y="0" width="588" height="168" rx="24" fill="${o.badge}"${o.outlineBadge ? ` stroke="${o.line}" stroke-width="6"` : ""}/><rect x="18" y="18" width="552" height="132" rx="14" fill="${o.panel}"/>`
+        : `<rect x="18" y="18" width="552" height="132" rx="14" fill="${o.panel}"${o.outlineBadge ? ` stroke="${o.line}" stroke-width="6"` : ""}/>`;
+
+      return `<svg class="art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-label="${esc(o.label)}"><defs>${innerFilter(filterId, o.shadowTone || o.line, o.shadowOpacity || ".86")}</defs>${field}<g transform="translate(66 76)">${outerBadge}<path d="M56 70l32 26-32 26" fill="none" stroke="${o.accent}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M356 96h124" stroke="${o.line}" stroke-width="10" stroke-linecap="round"/><rect x="322" y="60" width="12" height="72" fill="${o.accent}"/>${wordmark(o, filterId)}</g></svg>`;
+    }
+
+    function card(option) {
+      const swatches = (option.swatches || []).map(color => `<span class="swatch" style="background:${color}"></span>`).join("");
+      return `<article class="card">${rm02Svg(option)}<div class="meta"><strong>${esc(option.id)}</strong><span>${esc(option.note)}</span>${swatches ? `<div class="swatches">${swatches}</div>` : ""}</div></article>`;
+    }
+
+    const rows = [
+      {
+        title: '"3" colour',
+        description: 'RM02 with the raised 3 recolored through each palette value.',
+        options: [
+          { id: "TOP1-RM02", label: "TOP1-RM02 as-is", note: "RM02-as-is. Raised 3 remains near white.", swatches: [palette.white] },
+          { id: "TOP1-RM02-CZ", label: "TOP1-RM02 3 zinc", note: 'Raised 3 text-colour: zinc black.', threeColor: palette.zinc, shadowTone: "#71717a", swatches: [palette.zinc] },
+          { id: "TOP1-RM02-CW", label: "TOP1-RM02 3 white", note: 'Raised 3 text-colour: near white.', threeColor: palette.white, swatches: [palette.white] },
+          { id: "TOP1-RM02-CG", label: "TOP1-RM02 3 gray", note: 'Raised 3 text-colour: soft gray.', threeColor: palette.gray, shadowTone: "#a1a1aa", swatches: [palette.gray] },
+          { id: "TOP1-RM02-CY", label: "TOP1-RM02 3 yellow", note: 'Raised 3 text-colour: signal yellow.', threeColor: palette.yellow, shadowTone: "#a16207", swatches: [palette.yellow] }
+        ]
+      },
+      {
+        title: "Web / transparent",
+        description: "Transparent-canvas variants for nav bars, overlays, and favicon-style use.",
+        options: [
+          { id: "TOP1-RM02-WT0", label: "TOP1-RM02 transparent as-is", note: "RM02 applied to web transparent output.", transparentField: true },
+          { id: "TOP1-RM02-WT1", label: "TOP1-RM02 transparent compact", note: "Transparent field with inner panel only.", transparentField: true, showBadge: false, outlineBadge: true },
+          { id: "TOP1-RM02-WT2", label: "TOP1-RM02 transparent outline", note: "Transparent field with a lighter outlined badge.", transparentField: true, outlineBadge: true, badge: "transparent", panel: palette.zinc },
+          { id: "TOP1-RM02-WT3", label: "TOP1-RM02 transparent light", note: "Transparent field with reversed light panel for dark website headers.", transparentField: true, badge: "transparent", panel: palette.white, textColor: palette.zinc, threeColor: palette.yellow, line: "#52525b", shadowTone: "#71717a" }
+        ]
+      },
+      {
+        title: "Web / background",
+        description: "Website-background applications where the proof sits on a live page surface.",
+        options: [
+          { id: "TOP1-RM02-WB0", label: "TOP1-RM02 web background as-is", note: "RM02 applied to web background output." },
+          { id: "TOP1-RM02-WB1", label: "TOP1-RM02 web deep", note: "Deep technical page background with full badge contrast.", field: "#0f172a", panel: "#111827", badge: "#f8fafc", line: "#cbd5e1", accent: "#facc15" },
+          { id: "TOP1-RM02-WB2", label: "TOP1-RM02 web light", note: "Light website surface with dark badge body.", field: "#eef3f8", badge: "#ffffff", panel: palette.zinc, line: "#94a3b8", accent: palette.yellow },
+          { id: "TOP1-RM02-WB3", label: "TOP1-RM02 web blue", note: "Cool blue site background with the RM02 terminal badge.", field: "#dbeafe", badge: "#f8fafc", panel: "#172033", line: "#93a4b8", accent: "#eab308" }
+        ]
+      },
+      {
+        title: "Print / colour",
+        description: "Colour print options with cleaner contrast and fewer screen-only assumptions.",
+        options: [
+          { id: "TOP1-RM02-PC0", label: "TOP1-RM02 print colour as-is", note: "RM02 applied to print colour output." },
+          { id: "TOP1-RM02-PC1", label: "TOP1-RM02 print white stock", note: "White stock with the terminal badge preserved.", field: "#ffffff", badge: "#ffffff", panel: palette.zinc, line: "#b8b8bf", accent: "#d99a00", outlineBadge: true },
+          { id: "TOP1-RM02-PC2", label: "TOP1-RM02 print cream stock", note: "Warm print stock with controlled yellow accent.", field: "#f7f3ea", badge: "#fffdf7", panel: "#202124", line: "#c9c7c1", accent: "#c58a00", outlineBadge: true },
+          { id: "TOP1-RM02-PC3", label: "TOP1-RM02 print high contrast", note: "High-contrast colour mark for small print placements.", field: "#ffffff", badge: "#18181b", panel: "#ffffff", textColor: palette.zinc, threeColor: "#c98a00", line: "#52525b", accent: "#c98a00", shadowTone: "#71717a" }
+        ]
+      },
+      {
+        title: "Print / black-white",
+        description: "Single-colour and grayscale interpretations for black-white production.",
+        options: [
+          { id: "TOP1-RM02-PB0", label: "TOP1-RM02 black-white as-is", note: "RM02 applied to print black-white output.", field: "#ffffff", badge: "#ffffff", panel: "#111111", line: "#d0d0d0", accent: "#ffffff", outlineBadge: true, threeColor: "#ffffff" },
+          { id: "TOP1-RM02-PB1", label: "TOP1-RM02 black-white solid", note: "Solid black badge, white reversed wordmark.", field: "#ffffff", badge: "#111111", panel: "#111111", line: "#ffffff", accent: "#ffffff", threeColor: "#ffffff" },
+          { id: "TOP1-RM02-PB2", label: "TOP1-RM02 black-white outline", note: "Outlined white badge for labels and invoices.", field: "#ffffff", badge: "#ffffff", panel: "#ffffff", textColor: "#111111", threeColor: "#111111", line: "#111111", accent: "#111111", outlineBadge: true, shadowTone: "#8a8a8a" },
+          { id: "TOP1-RM02-PB3", label: "TOP1-RM02 grayscale", note: "Grayscale print mark with soft tonal separation.", field: "#f2f2f2", badge: "#ffffff", panel: "#2b2b2b", line: "#bdbdbd", accent: "#f5f5f5", threeColor: "#f5f5f5", outlineBadge: true }
+        ]
+      }
+    ];
+
+    document.getElementById("proofs").innerHTML = rows.map(row => `
+      <section class="row">
+        <div class="row-head">
+          <div>
+            <h2>${esc(row.title)}</h2>
+            <p>${esc(row.description)}</p>
+          </div>
+          <span class="count">${row.options.length} proofs</span>
+        </div>
+        <div class="proof-grid">${row.options.map(card).join("")}</div>
+      </section>
+    `).join("");
+  </script>
+</body>
+</html>
